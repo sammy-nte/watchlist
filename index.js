@@ -1,4 +1,3 @@
-export let arrays = 2;
 const searchBtn = document.getElementById("search-btn");
 const container = document.getElementById("result-container");
 let inputField = document.getElementById("input-search");
