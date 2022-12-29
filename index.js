@@ -22,13 +22,13 @@ searchBtn.addEventListener("click", (e) => {
   container.innerHTML = "";
   // const url = query();
   // Fetch data from api based on user input
-  fetch(`http://www.omdbapi.com/?apikey=eaeb9e1e&s=${inputField.value}`)
+  fetch(`https://www.omdbapi.com/?apikey=eaeb9e1e&s=${inputField.value}`)
     .then((response) => response.json())
     .then((data) => {
       for (let result of data.Search) {
         function newQueryUrl() {
           const imdb = result.imdbID;
-          return `http://www.omdbapi.com/?apikey=eaeb9e1e&i=${imdb}&plot=full`;
+          return `https://www.omdbapi.com/?apikey=eaeb9e1e&i=${imdb}&plot=full`;
         }
 
         let newUrl = newQueryUrl();
@@ -72,7 +72,7 @@ let array = [];
 window.addEventListener("click", (e) => {
   const imdb = e.target.dataset.watchlist;
   if (imdb) {
-    fetch(`http://www.omdbapi.com/?apikey=eaeb9e1e&i=${imdb}&plot=full`)
+    fetch(`https://www.omdbapi.com/?apikey=eaeb9e1e&i=${imdb}&plot=full`)
       .then((response) => response.json())
       .then((data) => {
         array.push(data);
