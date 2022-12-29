@@ -4,9 +4,9 @@ const container = document.getElementById("result-container");
 let inputField = document.getElementById("input-search");
 const searchDisplay = document.getElementById("search-display");
 
-function query() {
-  return `http://www.omdbapi.com/?apikey=eaeb9e1e&s=${inputField.value}`;
-}
+// function query() {
+//   return `http://www.omdbapi.com/?apikey=eaeb9e1e&s=${inputField.value}`;
+// }
 
 // inputField.addEventListener("keyup", () => {
 //   if (inputField.value) {
@@ -20,9 +20,9 @@ searchBtn.addEventListener("click", (e) => {
   e.preventDefault();
   searchDisplay.textContent = `Your Search: "${inputField.value}"`;
   container.innerHTML = "";
-  const url = query();
+  // const url = query();
   // Fetch data from api based on user input
-  fetch(url)
+  fetch(`http://www.omdbapi.com/?apikey=eaeb9e1e&s=${inputField.value}`)
     .then((response) => response.json())
     .then((data) => {
       for (let result of data.Search) {
