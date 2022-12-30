@@ -3,17 +3,13 @@ const container = document.getElementById("result-container");
 let inputField = document.getElementById("input-search");
 const searchDisplay = document.getElementById("search-display");
 
-// function query() {
-//   return `http://www.omdbapi.com/?apikey=eaeb9e1e&s=${inputField.value}`;
-// }
-
-// inputField.addEventListener("keyup", () => {
-//   if (inputField.value) {
-//     document.querySelector(".greeting").style.display = "none";
-//   } else {
-//     document.querySelector(".greeting").style.display = "flex";
-//   }
-// });
+inputField.addEventListener("keyup", () => {
+  if (inputField.value) {
+    document.querySelector(".greeting").style.display = "none";
+  } else {
+    document.querySelector(".greeting").style.display = "flex";
+  }
+});
 
 searchBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -35,29 +31,28 @@ searchBtn.addEventListener("click", (e) => {
         fetch(newUrl)
           .then((response) => response.json())
           .then((data) => {
-            let htmlRender = `
-                  <div class="result-item" id="${data.imdbID}">
-                  <div class="poster">
-                      <img src="${data.Poster}">
-                  </div>
-                  <div class="details">
-                      <div class="title-rating">
-                          <h3>${data.Title}</h3>
-                          <span>⭐${data.imdbRating}</span>
-                      </div>
-                      <div class="area">
-                         <p class="duration">${data.Runtime}</p> 
-                         <p class="genre">${data.Genre}</p>
-                         <button data-watchlist="${data.imdbID}" class="watchlist-btn">Add to watchlist</button>
-                         <p class="type">⬤ ${data.Type}</p>
-                      </div>
-                      <div class="plot">
-                          <p>${data.Plot}</p>
-                      </div>
-                  </div>
-              </div>      
-                  
-                  `;
+            let htmlRender =
+             `
+              <div class="result-item" id="${data.imdbID}">
+                < div class="poster">
+                  <img src="${data.Poster}">
+                </div>
+                <div class="details">
+                  <div class="title-rating">
+                  <h3>${data.Title}</h3>
+                  <span>⭐${data.imdbRating}</span>
+                </div>
+                <div class="area">
+                  <p class="duration">${data.Runtime}</p> 
+                  <p class="genre">${data.Genre}</p>
+                  <button data-watchlist="${data.imdbID}" class="watchlist-btn"> ➕watchlist</button>
+                  <p class="type">⬤ ${data.Type}</p>
+                </div>
+                <div class="plot">
+                  <p>${data.Plot}</p>
+                </div>
+              </div>
+            `;
             container.innerHTML += htmlRender;
           });
       }
@@ -66,22 +61,12 @@ searchBtn.addEventListener("click", (e) => {
   document.querySelector(".greeting").style.display = "none";
 });
 
-
-let array = JSON.parse(localStorage.getItem('list')) || []
+let array = JSON.parse(localStorage.getItem("list")) || [];
 window.addEventListener("click", (e) => {
   const imdb = e.target.dataset.watchlist;
   if (imdb) {
-    fetch(`https://www.omdbapi.com/?apikey=eaeb9e1e&i=${imdb}&plot=full`)
-      .then((response) => response.json())
-      .then((data) => {
-        array.push(data);
-        let savedList = [...array]
-        let array_serialized = JSON.stringify(savedList)
-        localStorage.setItem("list", array_serialized);
-        console.log(savedList);
-      });
+    array.push(imdb);
+    let array_serialized = JSON.stringify(array);
+    localStorage.setItem("list", array_serialized);
   }
 });
-
-localStorage.setItem('number', 'I am a good string')
-console.log(localStorage.getItem('number'))

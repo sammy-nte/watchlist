@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
-@import url("./general.css");
 
 header{
     width: 100%;
@@ -58,9 +57,10 @@ header{
 
 .greeting{
     margin: 0 auto;
-    width: 350px;
+    max-width: 350px;
+    width: 80%;
     height: 200px;
-    background: rgba(227, 227, 227, 0.644);
+    background: rgba(227, 227, 227, 0.409);
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -71,5 +71,47 @@ header{
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
     font-weight: 700;
-    color: #6B7280;
+    color: #6b7280b1;
+}
+
+
+@media screen and (max-width: 480px){
+    .wishlist-text{
+        font-size: .8rem;
+        padding-right: 10px;
+    }
+
+    #input-search{
+        width: 60%;
+    }
+
+    #search-btn{
+        width: 20%;
+    }
+
+    .banner::after{
+        font-size: 1.2rem;
+    }
+
+    .greeting{
+       height: 130px; 
+    }
+
+    .greeting p{
+        font-size: .8rem;
+    }
+
+    .greeting img{
+        width: 50px;
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width:640px) {
+    #input-search{
+        width: 200px;
+    }
+    
+    .banner::after{
+        font-size: 2.3rem;
+    }
 }

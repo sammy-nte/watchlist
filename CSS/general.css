@@ -1,108 +1,156 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto',sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 button,
-input{
-    border: none;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
+input {
+  border: none;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
-.container{
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.result-item{
-    width: 80%;
-    display: flex;
-    max-width: 900px;
-    margin: 20px 0 0 0;
-    box-shadow: 1px 1px 3px 1px rgb(224, 224, 224);
-    min-height: 250px;
+.result-item {
+  width: 80%;
+  display: flex;
+  max-width: 900px;
+  margin: 20px 0 0 0;
+  box-shadow: 1px 1px 3px 1px rgb(224, 224, 224);
+  min-height: 250px;
 }
 
-.poster{
-    height: inherit;
-    width: 26%;
+.poster {
+  height: inherit;
+  width: 26%;
 }
 
-.poster img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.details{
-    width: 74%;
+.details {
+  width: 74%;
 }
 
-.title-rating{
-    margin: 8px 0 0 0;
-    width: fit-content;
+.title-rating {
+  margin: 8px 0 0 0;
+  width: fit-content;
 }
 
 .title-rating,
 .area,
-.plot{
-    margin-left: 10px;
+.plot {
+  padding: 10px;
 }
 
-.title-rating h3{
-    display: inline-block;
-    font-size: 1.4rem;
-    padding: 0 10px 0 0;
+.title-rating h3 {
+  display: inline-block;
+  font-size: 1.4rem;
+  padding: 0 10px 0 0;
 }
 
-.title-rating span{
-    font-size: 1rem;
+.title-rating span {
+  font-size: 1rem;
 }
 
-.area{
-    display: flex;
-    align-items: center;
-    width: fit-content;
-    margin-top: 8px;
+.area {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin-top: 8px;
 }
 
-.area p{
-    margin-right: 20px;
-    font-size: .8rem;
+.area p {
+  margin-right: 20px;
+  font-size: 0.8rem;
 }
 
-.watchlist-btn{
-    height: 28px;
-    padding: 3px;
-    margin-right: 20px;
+.watchlist-btn {
+  height: 28px;
+  padding: 3px;
+  margin-right: 20px;
+  cursor: pointer;
 }
 
-.type{
-    text-transform: capitalize;
+.type {
+  text-transform: capitalize;
 }
 
-.plot{
-    width: 80%;
-    margin-top: 10px;
-    color: #6B7280;
-    font-weight: 300;
-    line-height: 1.3rem;
+.plot {
+  width: 100%;
+  margin-top: 10px;
+  color: #6b7280;
+  font-weight: 300;
+  line-height: 1.3rem;
 }
 
-.plot p{
-    padding: 0 0 10px 0;
+.plot p {
+  padding: 0 0 10px 0;
+}
+
+@media screen and (max-width: 500px) {
+  .result-item {
+    flex-direction: column;
+  }
+
+  .poster {
+    width: 100%;
+    height: 420px;
+  }
+
+  .poster img {
+    object-fit: fill;
+  }
+
+  .details {
+    width: 100%;
+  }
+
+  .title-rating{
+    /* background: blue; */
+  }
+
+  .area {
+    /* background: green; */
+    width: 100%;
+    justify-content: space-around;
+    margin: 0;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .area p {
+    font-size: 0.9rem;
+    /* margin-right: 9px; */
+    margin: 5px 0;
+  }
+
+  .watchlist-btn {
+    margin-right: 9px;
+  }
+
+  .plot {
+    width: 100%;
+  }
 }
