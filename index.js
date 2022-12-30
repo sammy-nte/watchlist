@@ -1,4 +1,3 @@
-export let arrays = 2;
 const searchBtn = document.getElementById("search-btn");
 const container = document.getElementById("result-container");
 let inputField = document.getElementById("input-search");
@@ -67,8 +66,8 @@ searchBtn.addEventListener("click", (e) => {
   document.querySelector(".greeting").style.display = "none";
 });
 
-let array = [];
 
+let array = JSON.parse(localStorage.getItem('list')) || []
 window.addEventListener("click", (e) => {
   const imdb = e.target.dataset.watchlist;
   if (imdb) {
@@ -76,8 +75,13 @@ window.addEventListener("click", (e) => {
       .then((response) => response.json())
       .then((data) => {
         array.push(data);
-        let array_serialized = JSON.stringify(array);
+        let savedList = [...array]
+        let array_serialized = JSON.stringify(savedList)
         localStorage.setItem("list", array_serialized);
+        console.log(savedList);
       });
   }
 });
+
+localStorage.setItem('number', 'I am a good string')
+console.log(localStorage.getItem('number'))
