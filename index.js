@@ -44,7 +44,7 @@ searchBtn.addEventListener("click", (e) => {
                 <div class="area">
                   <p class="duration">${data.Runtime}</p>
                   <p class="genre">${data.Genre}</p>
-                  <button data-watchlist="${data.imdbID}" class="watchlist-btn">Remove</button>
+                  <button data-watchlist="${data.imdbID}" class="watchlist-btn">➕ watchlist</button>
                   <p class="type">⬤ ${data.Type}</p>
                 </div>
                 <div class="plot">
