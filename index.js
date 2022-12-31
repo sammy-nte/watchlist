@@ -31,25 +31,24 @@ searchBtn.addEventListener("click", (e) => {
         fetch(newUrl)
           .then((response) => response.json())
           .then((data) => {
-            let htmlRender =
-             `
-              <div class="result-item" id="${data.imdbID}">
-                < div class="poster">
+            let htmlRender = `
+             <div class="result-item" id="${data.imdbID}">
+                <div class="poster">
                   <img src="${data.Poster}">
                 </div>
                 <div class="details">
-                  <div class="title-rating">
+                <div class="title-rating">
                   <h3>${data.Title}</h3>
                   <span>⭐${data.imdbRating}</span>
                 </div>
                 <div class="area">
-                  <p class="duration">${data.Runtime}</p> 
+                  <p class="duration">${data.Runtime}</p>
                   <p class="genre">${data.Genre}</p>
-                  <button data-watchlist="${data.imdbID}" class="watchlist-btn"> ➕watchlist</button>
+                  <button data-watchlist="${data.imdbID}" class="watchlist-btn">Remove</button>
                   <p class="type">⬤ ${data.Type}</p>
                 </div>
                 <div class="plot">
-                  <p>${data.Plot}</p>
+                    <p>${data.Plot}</p>
                 </div>
               </div>
             `;
